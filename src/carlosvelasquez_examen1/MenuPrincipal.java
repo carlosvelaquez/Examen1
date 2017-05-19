@@ -5,6 +5,8 @@
  */
 package carlosvelasquez_examen1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author imado
@@ -120,6 +122,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         btListarUsuarios.setText("Listar Usuarios");
+        btListarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btListarUsuariosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -194,6 +201,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btEliminarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEliminarUsuarioMouseClicked
         Main.eu.main(new String[1]);
     }//GEN-LAST:event_btEliminarUsuarioMouseClicked
+
+    private void btListarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarUsuariosActionPerformed
+        String us = new String();
+        
+        for (Usuario u : Main.usuarios) {
+            us += u.toString() + "\n";
+        }
+        
+        if (us.equals("")) {
+            JOptionPane.showMessageDialog(this, "No hay usuarios registrados");
+        }else{
+          JOptionPane.showMessageDialog(this, "Usuarios Registrados:\n\n" + us);  
+        }
+        
+    }//GEN-LAST:event_btListarUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
