@@ -223,7 +223,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
         
         if (Main.iniciarSesion(username, passwordActual)){
             for (Usuario u : Main.usuarios) {
-                if (u.getUsername().equals(nombre)) {
+                if (u.getUsername().equals(username)) {
                     u.setNombre(nombre);
                     u.setProfesion(profesion);
                     u.setPassword(password);

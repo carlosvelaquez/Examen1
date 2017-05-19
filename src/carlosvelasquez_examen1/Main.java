@@ -15,6 +15,7 @@ public class Main {
     static MenuProyecto mpro = new MenuProyecto();
     static RegistrarUsuario ru = new RegistrarUsuario();
     static ModificarUsuario mu = new ModificarUsuario();
+    static EliminarUsuario eu = new EliminarUsuario();
 
     public static void main(String[] args) {
         try{
@@ -32,6 +33,10 @@ public class Main {
             }
         }
         return false;
+    }
+    
+    static void push(){
+        
     }
 
 }

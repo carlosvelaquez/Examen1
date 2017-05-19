@@ -113,6 +113,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         btEliminarUsuario.setText("Eliminar Usuario");
+        btEliminarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btEliminarUsuarioMouseClicked(evt);
+            }
+        });
 
         btListarUsuarios.setText("Listar Usuarios");
 
@@ -185,6 +190,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btModificarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btModificarUsuarioMouseClicked
         Main.mu.main(new String[1]);
     }//GEN-LAST:event_btModificarUsuarioMouseClicked
+
+    private void btEliminarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEliminarUsuarioMouseClicked
+        Main.eu.main(new String[1]);
+    }//GEN-LAST:event_btEliminarUsuarioMouseClicked
 
     /**
      * @param args the command line arguments

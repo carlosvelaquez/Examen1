@@ -56,7 +56,7 @@ public class MenuProyecto extends javax.swing.JFrame {
         btNuevoArchivo = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
-        jTextField2 = new javax.swing.JTextField();
+        tfComando = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cbModProyectos = new javax.swing.JComboBox<>();
         jButton8 = new javax.swing.JButton();
@@ -242,6 +242,11 @@ public class MenuProyecto extends javax.swing.JFrame {
         jButton9.setText("Eliminar Archivo");
 
         jToggleButton1.setText("Ejecutar Comando");
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton1MouseClicked(evt);
+            }
+        });
 
         jLabel7.setText("Proyecto");
 
@@ -288,7 +293,7 @@ public class MenuProyecto extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField2)
+                        .addComponent(tfComando)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jToggleButton1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -334,7 +339,7 @@ public class MenuProyecto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfComando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -552,6 +557,15 @@ public class MenuProyecto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
+    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
+        if (tfComando.getText().equals("meow push")) {
+            JOptionPane.showMessageDialog(this, "Cambios guardados existosamente");
+            Main.push();
+        }else{
+            JOptionPane.showMessageDialog(this, "Comando inválido", "Error", 0);
+        }
+    }//GEN-LAST:event_jToggleButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -625,12 +639,12 @@ public class MenuProyecto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbNombreUsuario;
     private javax.swing.JTextArea taColaboradores;
     private javax.swing.JTextArea taModProyectos;
     private javax.swing.JTextArea taProyectos;
+    private javax.swing.JTextField tfComando;
     private javax.swing.JTextField tfNombreNuevoProyecto;
     private javax.swing.JTabbedPane tp;
     // End of variables declaration//GEN-END:variables
