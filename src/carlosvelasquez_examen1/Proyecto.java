@@ -47,7 +47,7 @@ public class Proyecto {
 
     @Override
     public String toString() {
-        return nombre + ", " + commits + " Commits, " + archivos.size() + " Archivos y Carpetas";
+        return nombre + ", " + commits + " Commits, " + colaboradores.size() + " Colaboradores";
     }
     
     

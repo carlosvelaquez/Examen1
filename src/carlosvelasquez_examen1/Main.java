@@ -8,7 +8,8 @@ public class Main {
     static ArrayList<Proyecto> proyectos = new ArrayList();
     static Usuario usuarioActual;
     static Proyecto proyectoActual;
-    static ArrayList<Archivo> carpetaActual;
+    static Carpeta carpetaActual;
+    static ArchivoTexto archivoActual;
     
     static MenuPrincipal mp = new MenuPrincipal();
     static MenuProyecto mpro = new MenuProyecto();

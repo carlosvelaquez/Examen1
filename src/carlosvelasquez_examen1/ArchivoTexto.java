@@ -5,6 +5,7 @@ public class ArchivoTexto extends Archivo{
 
     public ArchivoTexto(String nombre, float tamaño) {
         super(nombre, tamaño);
+        contenido = "Archivo de Texto - " + nombre + "\n-   -   -   -   -   -   -   -   -   -\n\n";
     }
 
     public String getContenido() {
@@ -17,7 +18,7 @@ public class ArchivoTexto extends Archivo{
 
     @Override
     public String toString() {
-        return "📂 " + nombre;
+        return "🗄 " + nombre;
     }
     
     

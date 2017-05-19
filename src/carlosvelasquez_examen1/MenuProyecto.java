@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author imado
  */
 public class MenuProyecto extends javax.swing.JFrame {
-
+    boolean enArchivo = false;
     /**
      * Creates new form MenuProyecto
      */
@@ -53,7 +53,7 @@ public class MenuProyecto extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         taModProyectos = new javax.swing.JTextArea();
-        jButton7 = new javax.swing.JButton();
+        btNuevoArchivo = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         jTextField2 = new javax.swing.JTextField();
@@ -62,6 +62,7 @@ public class MenuProyecto extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         btRaizProyecto = new javax.swing.JButton();
         btNuevaCarpeta = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -106,7 +107,7 @@ public class MenuProyecto extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 246, Short.MAX_VALUE))
+                        .addGap(0, 268, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -179,7 +180,7 @@ public class MenuProyecto extends javax.swing.JFrame {
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 214, Short.MAX_VALUE)
+                        .addGap(0, 236, Short.MAX_VALUE)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btCrearProyecto))
@@ -231,7 +232,12 @@ public class MenuProyecto extends javax.swing.JFrame {
         taModProyectos.setRows(5);
         jScrollPane3.setViewportView(taModProyectos);
 
-        jButton7.setText("Nuevo Archivo");
+        btNuevoArchivo.setText("Nuevo Archivo");
+        btNuevoArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btNuevoArchivoMouseClicked(evt);
+            }
+        });
 
         jButton9.setText("Eliminar Archivo");
 
@@ -245,7 +251,7 @@ public class MenuProyecto extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Modificar Archivo");
+        jButton8.setText("Abrir Archivo/Carpeta");
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton8MouseClicked(evt);
@@ -266,6 +272,13 @@ public class MenuProyecto extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("Atrás");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -279,7 +292,7 @@ public class MenuProyecto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jToggleButton1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btNuevoArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btNuevaCarpeta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -294,6 +307,8 @@ public class MenuProyecto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbModProyectos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btRaizProyecto)))
                 .addContainerGap())
         );
@@ -306,13 +321,14 @@ public class MenuProyecto extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(cbModProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btRaizProyecto))
+                    .addComponent(btRaizProyecto)
+                    .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
-                    .addComponent(jButton7)
+                    .addComponent(btNuevoArchivo)
                     .addComponent(jButton8)
                     .addComponent(btNuevaCarpeta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -350,7 +366,7 @@ public class MenuProyecto extends javax.swing.JFrame {
                     .addComponent(jScrollPane4)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addGap(0, 275, Short.MAX_VALUE))
+                        .addGap(0, 297, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -484,7 +500,7 @@ public class MenuProyecto extends javax.swing.JFrame {
             }
         }
         
-        Main.carpetaActual = Main.proyectoActual.getArchivos();
+        Main.carpetaActual = new Carpeta("", 0, null);
         refrescarCarpeta();
         
     }//GEN-LAST:event_btRaizProyectoMouseClicked
@@ -492,10 +508,17 @@ public class MenuProyecto extends javax.swing.JFrame {
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         String arch = JOptionPane.showInputDialog("Ingrese el nombre del archivo que desea ver");
         
-        for (Archivo a : Main.carpetaActual) {
+        for (Archivo a : Main.carpetaActual.getArchivos()) {
             if (a.getNombre().equals(arch)) {
                 if (a instanceof Carpeta) {
-                    Main.carpetaActual = ((Carpeta) a).getArchivos();
+                    Main.carpetaActual = ((Carpeta) a);
+                }else if (a instanceof ArchivoTexto){
+                    ArchivoTexto archt = (ArchivoTexto) a;
+                    taModProyectos.setText("");
+                    taModProyectos.setText(archt.getContenido());
+                    Main.archivoActual = archt;
+                    taModProyectos.setEditable(true);
+                    enArchivo = true;
                 }
             }
         }
@@ -505,9 +528,29 @@ public class MenuProyecto extends javax.swing.JFrame {
 
     private void btNuevaCarpetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNuevaCarpetaMouseClicked
          String n = JOptionPane.showInputDialog("Ingrese el nombre de la carpeta a crear");
-         Main.carpetaActual.add(new Carpeta(n, 0));
+         Main.carpetaActual.getArchivos().add(new Carpeta(n, 0, Main.carpetaActual));
          refrescarCarpeta();
     }//GEN-LAST:event_btNuevaCarpetaMouseClicked
+
+    private void btNuevoArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNuevoArchivoMouseClicked
+        String n = JOptionPane.showInputDialog("Ingrese el nombre del archivo a crear");
+        Main.carpetaActual.getArchivos().add(new ArchivoTexto(n, 0));
+        refrescarCarpeta();
+    }//GEN-LAST:event_btNuevoArchivoMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        if (Main.carpetaActual.getCarpetaPadre() != null) {
+            Main.carpetaActual = Main.carpetaActual.getCarpetaPadre();
+            refrescarCarpeta();
+        }
+        
+        if (enArchivo) {
+            Main.archivoActual.setContenido(taModProyectos.getText());
+            taModProyectos.setEditable(false);
+            refrescarCarpeta();
+            enArchivo = false;
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -550,6 +593,7 @@ public class MenuProyecto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCrearProyecto;
     private javax.swing.JButton btNuevaCarpeta;
+    private javax.swing.JButton btNuevoArchivo;
     private javax.swing.JButton btRaizProyecto;
     private javax.swing.JComboBox<String> cbAñadirColaborador;
     private javax.swing.JComboBox<String> cbEliminarColaborador;
@@ -558,9 +602,9 @@ public class MenuProyecto extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -609,7 +653,10 @@ public class MenuProyecto extends javax.swing.JFrame {
         }
         
         taProyectos.setText(pro);
-        lbNombreUsuario.setText(Main.usuarioActual.getNombre());
+        
+        if (pro.equals("")) {
+            taProyectos.setText("No hay proyectos que mostrar.");
+        }
     }
     
     void resetCrearProyecto(){
@@ -638,11 +685,15 @@ public class MenuProyecto extends javax.swing.JFrame {
     void refrescarCarpeta(){
         String ex = new String();
         
-        for (Archivo a : Main.carpetaActual) {
+        for (Archivo a : Main.carpetaActual.getArchivos()) {
            ex += a.toString() + "\n";
         }
         
         taModProyectos.setText(ex);
+        
+        if (ex.equals("")) {
+            taModProyectos.setText("Esta carpeta está vacía");
+        }
     }
 
 }
