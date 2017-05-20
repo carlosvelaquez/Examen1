@@ -66,9 +66,9 @@ public class MenuProyecto extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jButton11 = new javax.swing.JButton();
+        taElimProyectos = new javax.swing.JTextArea();
+        cbElimProyectos = new javax.swing.JComboBox<>();
+        btEliminarProyecto = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         lbNombreUsuario = new javax.swing.JLabel();
@@ -161,6 +161,16 @@ public class MenuProyecto extends javax.swing.JFrame {
         });
 
         jButton5.setText("Cancelar y Descartar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -348,16 +358,19 @@ public class MenuProyecto extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("Eliminar Proyecto");
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        taElimProyectos.setColumns(20);
+        taElimProyectos.setRows(5);
+        jScrollPane4.setViewportView(taElimProyectos);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton11.setText("Eliminar Proyecto");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        btEliminarProyecto.setText("Eliminar Proyecto");
+        btEliminarProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btEliminarProyectoMouseClicked(evt);
+            }
+        });
+        btEliminarProyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                btEliminarProyectoActionPerformed(evt);
             }
         });
 
@@ -373,9 +386,9 @@ public class MenuProyecto extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(0, 297, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbElimProyectos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11)))
+                        .addComponent(btEliminarProyecto)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -387,8 +400,8 @@ public class MenuProyecto extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11))
+                    .addComponent(cbElimProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEliminarProyecto))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -439,9 +452,9 @@ public class MenuProyecto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void btEliminarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarProyectoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_btEliminarProyectoActionPerformed
 
     private void tpStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpStateChanged
         if (Main.usuarioActual != null) {
@@ -566,6 +579,26 @@ public class MenuProyecto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jToggleButton1MouseClicked
 
+    private void btEliminarProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEliminarProyectoMouseClicked
+        for (Proyecto p : Main.proyectos) {
+            if(cbElimProyectos.getSelectedItem().equals(p.toString())){
+             Main.proyectos.remove(Main.proyectos.indexOf(p));
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Proyecto eliminado exitosamente");
+        refrescarProyectos();
+        
+    }//GEN-LAST:event_btEliminarProyectoMouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        resetCrearProyecto();
+        refrescarProyectos();
+    }//GEN-LAST:event_jButton5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -606,14 +639,15 @@ public class MenuProyecto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCrearProyecto;
+    private javax.swing.JButton btEliminarProyecto;
     private javax.swing.JButton btNuevaCarpeta;
     private javax.swing.JButton btNuevoArchivo;
     private javax.swing.JButton btRaizProyecto;
     private javax.swing.JComboBox<String> cbAñadirColaborador;
+    private javax.swing.JComboBox<String> cbElimProyectos;
     private javax.swing.JComboBox<String> cbEliminarColaborador;
     private javax.swing.JComboBox<String> cbModProyectos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -621,7 +655,6 @@ public class MenuProyecto extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -638,10 +671,10 @@ public class MenuProyecto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbNombreUsuario;
     private javax.swing.JTextArea taColaboradores;
+    private javax.swing.JTextArea taElimProyectos;
     private javax.swing.JTextArea taModProyectos;
     private javax.swing.JTextArea taProyectos;
     private javax.swing.JTextField tfComando;
@@ -667,9 +700,11 @@ public class MenuProyecto extends javax.swing.JFrame {
         }
         
         taProyectos.setText(pro);
+        taElimProyectos.setText(pro);
         
         if (pro.equals("")) {
             taProyectos.setText("No hay proyectos que mostrar.");
+            taElimProyectos.setText("No hay proyectos que mostrar.");
         }
     }
     
