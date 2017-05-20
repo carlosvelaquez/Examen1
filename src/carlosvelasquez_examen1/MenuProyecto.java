@@ -694,6 +694,7 @@ public class MenuProyecto extends javax.swing.JFrame {
                 if (c == Main.usuarioActual) {
                     pro += p + "\n";
                     cbModProyectos.addItem(p.toString());
+                    cbElimProyectos.addItem(p.toString());
                 }
             }
 
