@@ -60,7 +60,6 @@ public class MenuProyecto extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         cbModProyectos = new javax.swing.JComboBox<>();
         jButton8 = new javax.swing.JButton();
-        btRaizProyecto = new javax.swing.JButton();
         btNuevaCarpeta = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -273,13 +272,6 @@ public class MenuProyecto extends javax.swing.JFrame {
             }
         });
 
-        btRaizProyecto.setText("Ir a la Raíz");
-        btRaizProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btRaizProyectoMouseClicked(evt);
-            }
-        });
-
         btNuevaCarpeta.setText("Nueva Carpeta");
         btNuevaCarpeta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -291,6 +283,11 @@ public class MenuProyecto extends javax.swing.JFrame {
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
+            }
+        });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -322,9 +319,7 @@ public class MenuProyecto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbModProyectos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btRaizProyecto)))
+                        .addComponent(jButton4)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -336,7 +331,6 @@ public class MenuProyecto extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(cbModProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btRaizProyecto)
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -512,18 +506,6 @@ public class MenuProyecto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbModProyectosMouseClicked
 
-    private void btRaizProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btRaizProyectoMouseClicked
-        for (Proyecto p : Main.proyectos) {
-            if (p.toString().equals(cbModProyectos.getItemAt(cbModProyectos.getSelectedIndex()))) {
-                Main.proyectoActual = p;
-            }
-        }
-        
-        Main.carpetaActual = new Carpeta("", 0, null);
-        refrescarCarpeta();
-        
-    }//GEN-LAST:event_btRaizProyectoMouseClicked
-
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         String arch = JOptionPane.showInputDialog("Ingrese el nombre del archivo que desea ver");
         
@@ -600,6 +582,10 @@ public class MenuProyecto extends javax.swing.JFrame {
         refrescarProyectos();
     }//GEN-LAST:event_jButton5MouseClicked
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -643,7 +629,6 @@ public class MenuProyecto extends javax.swing.JFrame {
     private javax.swing.JButton btEliminarProyecto;
     private javax.swing.JButton btNuevaCarpeta;
     private javax.swing.JButton btNuevoArchivo;
-    private javax.swing.JButton btRaizProyecto;
     private javax.swing.JComboBox<String> cbAñadirColaborador;
     private javax.swing.JComboBox<String> cbElimProyectos;
     private javax.swing.JComboBox<String> cbEliminarColaborador;
